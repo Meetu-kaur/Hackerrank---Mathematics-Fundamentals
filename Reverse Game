@@ -1,0 +1,25 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+
+
+def reverse_game(N: int, K: int):
+    i, j, lst = N - 1, 0, list()
+    lst += [i, j]
+    while i + j == N - 1 and i > j:
+        i -= 1; lst.append(i)
+        j += 1; lst.append(j)
+    return lst[:N].index(K)
+
+
+if __name__ == '__main__':
+    t = int(input().strip())
+    
+    for _ in range(t):
+        n, k = map(int, input().split())
+        print(reverse_game(n, k))
